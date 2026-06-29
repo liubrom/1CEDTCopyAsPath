@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ru.cursor.edt.copypath.feature"
+      label="Copy As Path for 1C:EDT"
+      version="1.0.0.qualifier"
+      provider-name="Cursor">
+
+   <description>
+      Adds Copy as path command to 1C:EDT metadata navigator context menu
+   </description>
+   <copyright>
+      Copyright (c) 2026
+   </copyright>
+   <license url="http://www.eclipse.org/legal/epl-2.0">
+      Eclipse Public License 2.0
+   </license>
+
+   <plugin
+         id="ru.cursor.edt.copypath.ui"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.qualifier"
+         unpack="false"/>
+</feature>

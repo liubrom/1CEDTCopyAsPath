@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="ru.cursor.edt.copypath.feature">
+      <category name="ru.cursor.edt.copypath.category"/>
+   </feature>
+   <category-def name="ru.cursor.edt.copypath.category" label="Copy As Path for 1C:EDT">
+      <description>Copy as path command for 1C:EDT metadata navigator</description>
+   </category-def>
+</site>

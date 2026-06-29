@@ -1,0 +1,33 @@
+# Сборка
+plugin/bundles/**/bin/
+dist/*.zip
+dist/repository/
+_work/compare-analog/
+_work/extracted/
+_work/ref-study/
+_work/tools/
+_work/*.zip
+_work/PLAN.md
+_work/**/stage/
+_work/content.xml
+
+# Эталоны и локальные артефакты
+_reference/
+
+# Java / IDE
+*.class
+*.jar
+!docs/plugins/*.jar
+!docs/features/*.jar
+!plugin/**/icons/**
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Логи отладки (локально)
+copy-as-path-debug.log

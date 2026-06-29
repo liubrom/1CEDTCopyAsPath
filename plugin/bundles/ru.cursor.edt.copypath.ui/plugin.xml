@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="ru.cursor.edt.copypath.ui.internal.menu.CopyPathSelectionTester"
+            id="ru.cursor.edt.copypath.ui.selectionTester"
+            namespace="ru.cursor.edt.copypath.ui"
+            properties="isSupported"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com._1c.g5.v8.dt.navigator.ui.navigator.popup?after=group.edit">
+         <separator
+               name="ru.cursor.edt.copypath.ui.separator"
+               visible="true">
+         </separator>
+         <menu
+               icon="icons/copy-as-path.png"
+               id="ru.cursor.edt.copypath.ui.menu"
+               label="%menu.copyAsPath">
+            <visibleWhen checkEnabled="false">
+               <with variable="selection">
+                  <count value="1"/>
+                  <iterate ifEmpty="false">
+                     <test
+                           property="ru.cursor.edt.copypath.ui.isSupported"
+                           value="true">
+                     </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+            <dynamic
+                  class="ru.cursor.edt.copypath.ui.internal.menu.CopyPathDynamicMenu"
+                  id="ru.cursor.edt.copypath.ui.dynamic">
+            </dynamic>
+         </menu>
+      </menuContribution>
+   </extension>
+</plugin>
