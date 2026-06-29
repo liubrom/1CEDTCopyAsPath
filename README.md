@@ -13,9 +13,9 @@
 
 Устанавливается из репозитория штатными средствами EDT (**Справка → Установить новое ПО…**):
 
-> https://rlubenkov.github.io/EDTCopyAsPath/
+> https://liubrom.github.io/1CEDTCopyAsPath/
 
-Либо из zip-архива в разделе [Releases](https://github.com/rlubenkov/EDTCopyAsPath/releases) (`copy-as-path-plugin-1.0.0.zip`).
+Либо из zip-архива в разделе [Releases](https://github.com/liubrom/1CEDTCopyAsPath/releases) (`copy-as-path-plugin-1.0.0.zip`).
 
 **Шаги в EDT**
 
