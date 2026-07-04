@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
-<repository name='Copy As Path for 1C:EDT 1.0.0' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+<repository name='Copy As Path for 1C:EDT 1.0.1' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1782736234315'/>
+    <property name='p2.timestamp' value='1783163400364'/>
     <property name='p2.compressed' value='false'/>
   </properties>
   <mappings size='3'>
@@ -11,18 +11,18 @@
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
   <artifacts size='2'>
-    <artifact classifier='osgi.bundle' id='ru.cursor.edt.copypath.ui' version='1.0.0'>
+    <artifact classifier='osgi.bundle' id='ru.cursor.edt.copypath.ui' version='1.0.1'>
       <properties size='3'>
-        <property name='artifact.size' value='62887'/>
-        <property name='download.size' value='62887'/>
-        <property name='download.checksum.sha-256' value='7cc1d45498cc4e8bad0ee1dd2e5970a64b3a2f3b7e1e92ee05abbe1a1a7fdc8c'/>
+        <property name='artifact.size' value='70953'/>
+        <property name='download.size' value='70953'/>
+        <property name='download.checksum.sha-256' value='5f1d32164d1b6404e441702ff5d06b6f46d74f40e22247e3d5ffeda1125d4b15'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='ru.cursor.edt.copypath.feature' version='1.0.0'>
+    <artifact classifier='org.eclipse.update.feature' id='ru.cursor.edt.copypath.feature' version='1.0.1'>
       <properties size='3'>
-        <property name='artifact.size' value='1165'/>
-        <property name='download.size' value='1165'/>
-        <property name='download.checksum.sha-256' value='f63d81fe795a37c6a3b9c1e0f94d74447416e1caa738f0cbc204a4139e287ec8'/>
+        <property name='artifact.size' value='1178'/>
+        <property name='download.size' value='1178'/>
+        <property name='download.checksum.sha-256' value='38c757801780e821af593919d6a79c7e4a81b021f0aa3fb6ed1d4e53962fe603'/>
       </properties>
     </artifact>
   </artifacts>

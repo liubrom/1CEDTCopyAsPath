@@ -9,6 +9,21 @@
             properties="isSupported"
             type="java.lang.Object">
       </propertyTester>
+      <propertyTester
+            class="ru.cursor.edt.copypath.ui.internal.editor.EditorCopyPathSupportedTester"
+            id="ru.cursor.edt.copypath.ui.editorSelectionTester"
+            namespace="ru.cursor.edt.copypath.ui"
+            properties="editorSupported"
+            type="org.eclipse.ui.texteditor.ITextEditor">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="ru.cursor.edt.copypath.ui.internal.editor.EditorCopyPathHandler"
+            id="ru.cursor.edt.copypath.ui.editorCopy"
+            name="%menu.copyAsPath">
+      </command>
    </extension>
    <extension point="org.eclipse.ui.menus">
       <menuContribution
@@ -38,6 +53,56 @@
                   id="ru.cursor.edt.copypath.ui.dynamic">
             </dynamic>
          </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:#BslEditorContext?after=copy">
+         <command
+               commandId="ru.cursor.edt.copypath.ui.editorCopy"
+               icon="icons/copy-as-path.png"
+               id="ru.cursor.edt.copypath.ui.editorCopy.bsl"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <and>
+                  <reference definitionId="com._1c.g5.v8.dt.bsl.Bsl.Editor.opened"/>
+                  <with variable="activeEditor">
+                     <adapt type="org.eclipse.ui.texteditor.ITextEditor">
+                        <test
+                              forcePluginActivation="true"
+                              property="ru.cursor.edt.copypath.ui.editorSupported"
+                              value="true">
+                        </test>
+                     </adapt>
+                  </with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:#AbstractTextEditorContext?after=copy">
+         <command
+               commandId="ru.cursor.edt.copypath.ui.editorCopy"
+               icon="icons/copy-as-path.png"
+               id="ru.cursor.edt.copypath.ui.editorCopy.text"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <and>
+                  <with variable="activeEditor">
+                     <adapt type="org.eclipse.ui.texteditor.ITextEditor">
+                        <test
+                              forcePluginActivation="true"
+                              property="ru.cursor.edt.copypath.ui.editorSupported"
+                              value="true">
+                        </test>
+                     </adapt>
+                  </with>
+                  <not>
+                     <reference definitionId="com._1c.g5.v8.dt.bsl.Bsl.Editor.opened"/>
+                  </not>
+               </and>
+            </visibleWhen>
+         </command>
       </menuContribution>
    </extension>
 </plugin>

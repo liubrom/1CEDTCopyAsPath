@@ -2,11 +2,11 @@
 <feature
       id="ru.cursor.edt.copypath.feature"
       label="Copy As Path for 1C:EDT"
-      version="1.0.0.qualifier"
+      version="1.0.1.qualifier"
       provider-name="Cursor">
 
    <description>
-      Adds Copy as path command to 1C:EDT metadata navigator context menu
+      Adds Copy as path command to 1C:EDT metadata navigator and text editor context menus
    </description>
    <copyright>
       Copyright (c) 2026
@@ -19,6 +19,6 @@
          id="ru.cursor.edt.copypath.ui"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="1.0.1.qualifier"
          unpack="false"/>
 </feature>

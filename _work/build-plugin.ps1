@@ -1,10 +1,21 @@
 param(
-    [string]$Version = "1.0.0",
+    [string]$BaseVersion = "1.0.1",
+    [string]$Version = "",
+    [switch]$Release,
     [switch]$PublishDocs,
     [switch]$CopyToDownloads
 )
 
 $ErrorActionPreference = "Stop"
+
+$buildStamp = Get-Date -Format "yyyyMMdd-HHmm"
+if ([string]::IsNullOrWhiteSpace($Version)) {
+    if ($Release) {
+        $Version = $BaseVersion
+    } else {
+        $Version = "$BaseVersion.$buildStamp"
+    }
+}
 
 $root = Split-Path -Parent $PSScriptRoot
 $bundleRoot = Join-Path $root "plugin\bundles\ru.cursor.edt.copypath.ui"
@@ -45,6 +56,10 @@ $classpath = @(
     Get-Jar "com._1c.g5.v8.dt.bsl.model_*.jar"
     Get-Jar "com._1c.g5.v8.dt.mcore_*.jar"
     Get-Jar "com._1c.g5.v8.dt.navigator_*.jar"
+    Get-Jar "org.eclipse.jface.text_*.jar"
+    Get-Jar "org.eclipse.ui.editors_*.jar"
+    Get-Jar "org.eclipse.ui.workbench.texteditor_*.jar"
+    Get-Jar "org.eclipse.text_*.jar"
 ) | Where-Object { $_ -and (Test-Path $_) } | Select-Object -Unique
 
 if ($classpath.Count -lt 8) {
@@ -67,7 +82,7 @@ Copy-Item (Join-Path $src "ru\cursor\edt\copypath\ui\internal\messages_ru.proper
 Copy-Item (Join-Path $bundleRoot "icons") $bin -Recurse -Force
 New-Item -ItemType Directory -Force -Path (Join-Path $bin "META-INF") | Out-Null
 $manifest = Get-Content (Join-Path $bundleRoot "META-INF\MANIFEST.MF") -Raw
-$manifest = $manifest -replace "1\.0\.0\.qualifier", $Version
+$manifest = $manifest -replace "1\.0\.\d+\.qualifier", $Version
 $manifestPath = Join-Path $bin "META-INF\MANIFEST.MF"
 $utf8NoBom = New-Object System.Text.UTF8Encoding $false
 [System.IO.File]::WriteAllText($manifestPath, $manifest, $utf8NoBom)
@@ -87,7 +102,7 @@ $featureWork = Join-Path $env:TEMP "copypath-feature-$Version"
 Remove-Item -Recurse -Force $featureWork -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $featureWork | Out-Null
 $featureXml = Get-Content (Join-Path $root "plugin\features\ru.cursor.edt.copypath.feature\feature.xml") -Raw
-$featureXml = $featureXml -replace "1\.0\.0\.qualifier", $Version
+$featureXml = $featureXml -replace "1\.0\.\d+\.qualifier", $Version
 [System.IO.File]::WriteAllText((Join-Path $featureWork "feature.xml"), $featureXml, $utf8NoBom)
 Copy-Item (Join-Path $root "plugin\features\ru.cursor.edt.copypath.feature\feature.properties") $featureWork -Force
 $featureJar = Join-Path $featuresDir "ru.cursor.edt.copypath.feature_$Version.jar"
@@ -132,3 +147,6 @@ if ($PublishDocs) {
 
 Write-Output "Built $zipPath"
 Write-Output "Plugin version: $Version"
+if (-not $Release) {
+    Write-Output "Dev build stamp: $buildStamp (use -Release for version $BaseVersion without postfix)"
+}

@@ -27,6 +27,8 @@ public class Messages extends NLS
     public static String Entry_command;
     public static String Entry_template;
     public static String Entry_allObjectFiles;
+    public static String Editor_lineSingle;
+    public static String Editor_linesRange;
 
     static
     {
@@ -55,5 +57,15 @@ public class Messages extends NLS
     public static String template(String name)
     {
         return NLS.bind(Entry_template, name);
+    }
+
+    public static String editorLineSingle(int line)
+    {
+        return NLS.bind(Editor_lineSingle, line);
+    }
+
+    public static String editorLinesRange(int startLine, int endLine)
+    {
+        return NLS.bind(Editor_linesRange, startLine, endLine);
     }
 }

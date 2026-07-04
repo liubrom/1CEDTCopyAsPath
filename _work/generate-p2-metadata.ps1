@@ -115,7 +115,7 @@ $content = @"
     <unit id='$featureJarId' version='$Version'>
       <properties size='5'>
         <property name='org.eclipse.equinox.p2.name' value='Copy As Path for 1C:EDT'/>
-        <property name='org.eclipse.equinox.p2.description' value='Adds Copy as path command to 1C:EDT metadata navigator context menu'/>
+        <property name='org.eclipse.equinox.p2.description' value='Adds Copy as path command to 1C:EDT metadata navigator and text editor context menus'/>
         <property name='org.eclipse.equinox.p2.provider' value='Cursor'/>
         <property name='df_LT.featureName' value='Copy As Path for 1C:EDT'/>
         <property name='df_LT.providerName' value='Cursor'/>
@@ -151,7 +151,7 @@ $content = @"
     <unit id='$featureGroupId' version='$Version' singleton='false'>
       <properties size='5'>
         <property name='org.eclipse.equinox.p2.name' value='Copy As Path for 1C:EDT'/>
-        <property name='org.eclipse.equinox.p2.description' value='Adds Copy as path command to 1C:EDT metadata navigator context menu'/>
+        <property name='org.eclipse.equinox.p2.description' value='Adds Copy as path command to 1C:EDT metadata navigator and text editor context menus'/>
         <property name='org.eclipse.equinox.p2.provider' value='Cursor'/>
         <property name='org.eclipse.equinox.p2.type.group' value='true'/>
         <property name='df_LT.featureName' value='Copy As Path for 1C:EDT'/>
@@ -181,7 +181,7 @@ $content = @"
     <unit id='$categoryId' version='$categoryVersion'>
       <properties size='3'>
         <property name='org.eclipse.equinox.p2.name' value='Copy As Path for 1C:EDT'/>
-        <property name='org.eclipse.equinox.p2.description' value='Copy as path command for 1C:EDT metadata navigator'/>
+        <property name='org.eclipse.equinox.p2.description' value='Copy as path command for 1C:EDT metadata navigator and text editor'/>
         <property name='org.eclipse.equinox.p2.type.category' value='true'/>
       </properties>
       <provides size='1'>

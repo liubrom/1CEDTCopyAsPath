@@ -4,6 +4,6 @@
       <category name="ru.cursor.edt.copypath.category"/>
    </feature>
    <category-def name="ru.cursor.edt.copypath.category" label="Copy As Path for 1C:EDT">
-      <description>Copy as path command for 1C:EDT metadata navigator</description>
+      <description>Copy as path command for 1C:EDT metadata navigator and text editor</description>
    </category-def>
 </site>
