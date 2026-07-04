@@ -58,6 +58,9 @@
 Фрагмент выделения не копируется — всегда **целиком затронутые строки**.
 
 ---
+<img width="888" height="648" alt="image" src="https://github.com/user-attachments/assets/9fe290e3-724d-4352-bc67-59591a5f4c88" />
+<img width="739" height="403" alt="image" src="https://github.com/user-attachments/assets/accd840a-de33-4222-9542-7bb7f8658274" />
+
 
 ## Лицензия
 
