@@ -16,7 +16,7 @@
 
 > https://liubrom.github.io/1CEDTCopyAsPath/
 
-Либо из zip-архива в разделе [Releases](https://github.com/liubrom/1CEDTCopyAsPath/releases) (`copy-as-path-plugin-1.0.1.zip`).
+Либо из zip-архива в разделе [Releases](https://github.com/liubrom/1CEDTCopyAsPath/releases) (`copy-as-path-plugin-1.01.zip`).
 
 **Шаги в EDT**
 

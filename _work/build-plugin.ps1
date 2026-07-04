@@ -1,5 +1,5 @@
 param(
-    [string]$BaseVersion = "1.0.1",
+    [string]$BaseVersion = "1.01",
     [string]$Version = "",
     [switch]$Release,
     [switch]$PublishDocs,
@@ -82,7 +82,7 @@ Copy-Item (Join-Path $src "ru\cursor\edt\copypath\ui\internal\messages_ru.proper
 Copy-Item (Join-Path $bundleRoot "icons") $bin -Recurse -Force
 New-Item -ItemType Directory -Force -Path (Join-Path $bin "META-INF") | Out-Null
 $manifest = Get-Content (Join-Path $bundleRoot "META-INF\MANIFEST.MF") -Raw
-$manifest = $manifest -replace "1\.0\.\d+\.qualifier", $Version
+$manifest = $manifest -replace '[\d.]+\.qualifier', $Version
 $manifestPath = Join-Path $bin "META-INF\MANIFEST.MF"
 $utf8NoBom = New-Object System.Text.UTF8Encoding $false
 [System.IO.File]::WriteAllText($manifestPath, $manifest, $utf8NoBom)
@@ -102,7 +102,7 @@ $featureWork = Join-Path $env:TEMP "copypath-feature-$Version"
 Remove-Item -Recurse -Force $featureWork -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $featureWork | Out-Null
 $featureXml = Get-Content (Join-Path $root "plugin\features\ru.cursor.edt.copypath.feature\feature.xml") -Raw
-$featureXml = $featureXml -replace "1\.0\.\d+\.qualifier", $Version
+$featureXml = $featureXml -replace '[\d.]+\.qualifier', $Version
 [System.IO.File]::WriteAllText((Join-Path $featureWork "feature.xml"), $featureXml, $utf8NoBom)
 Copy-Item (Join-Path $root "plugin\features\ru.cursor.edt.copypath.feature\feature.properties") $featureWork -Force
 $featureJar = Join-Path $featuresDir "ru.cursor.edt.copypath.feature_$Version.jar"

@@ -2,7 +2,7 @@
 <feature
       id="ru.cursor.edt.copypath.feature"
       label="Copy As Path for 1C:EDT"
-      version="1.0.1.qualifier"
+      version="1.01.qualifier"
       provider-name="Cursor">
 
    <description>
@@ -19,6 +19,6 @@
          id="ru.cursor.edt.copypath.ui"
          download-size="0"
          install-size="0"
-         version="1.0.1.qualifier"
+         version="1.01.qualifier"
          unpack="false"/>
 </feature>
