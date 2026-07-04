@@ -59,52 +59,6 @@
 
 ---
 
-## 3. Сборка из исходников
-
-Требуется **JDK 17** и установленная **1C:EDT** (для classpath из p2).
-
-```powershell
-.\_work\build-plugin.ps1 -PublishDocs
-```
-
-Каждая dev-сборка получает постфикс времени: `1.0.1.20260704-1347` — так EDT видит обновление при установке из zip.
-
-Релизная сборка без постфикса:
-
-```powershell
-.\_work\build-plugin.ps1 -Release -PublishDocs
-```
-
-Артефакты:
-
-| Файл | Назначение |
-|------|------------|
-| `dist\copy-as-path-plugin-1.0.1.<timestamp>.zip` | Dev-сборка для установки через *Добавить…* |
-| `dist\copy-as-path-plugin-1.0.1.zip` | Релиз (`-Release`) |
-| `docs\` | p2-сайт для GitHub Pages |
-
-Путь к jar EDT (если не стандартный):
-
-```powershell
-$env:EDT_P2_POOL = "C:\Users\<user>\.p2\pool\plugins"
-.\_work\build-plugin.ps1 -PublishDocs
-```
-
-После обновления `docs\` — закоммитить и отправить в репозиторий.  
-В настройках GitHub: **Settings → Pages → Deploy from branch → main → /docs**.
-
----
-
-## 4. Отладка
-
-По умолчанию лог выключен. Чтобы включить, создайте файл:
-
-`%USERPROFILE%\copy-as-path-debug.on`
-
-Лог: `%USERPROFILE%\copy-as-path-debug.log`
-
----
-
 ## Лицензия
 
 [Eclipse Public License 2.0](LICENSE)
