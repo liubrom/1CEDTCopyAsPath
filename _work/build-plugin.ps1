@@ -1,5 +1,5 @@
 param(
-    [string]$BaseVersion = "1.01",
+    [string]$BaseVersion = "1.1.0",
     [string]$Version = "",
     [switch]$Release,
     [switch]$PublishDocs,
@@ -128,13 +128,14 @@ Remove-Item -Recurse -Force $distRepo -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $dist, $distRepo | Out-Null
 Copy-Item -Path (Join-Path $repo "*") -Destination $distRepo -Recurse -Force
 
-$zipPath = Join-Path $dist "copy-as-path-plugin-$Version.zip"
-$asciiZip = Join-Path $p2Root "copy-as-path-plugin-$Version.zip"
+$zipFileName = if ($Release) { "copy-as-path-plugin-1.01.zip" } else { "copy-as-path-plugin-$Version.zip" }
+$zipPath = Join-Path $dist $zipFileName
+$asciiZip = Join-Path $p2Root $zipFileName
 & (Join-Path $PSScriptRoot "pack-p2-zip.ps1") -SourceDir $repo -ZipPath $asciiZip
 Copy-Item $asciiZip $zipPath -Force
 
 if ($CopyToDownloads) {
-    $downloadsZip = Join-Path $env:USERPROFILE "Downloads\copy-as-path-plugin-$Version.zip"
+    $downloadsZip = Join-Path $env:USERPROFILE "Downloads\$zipFileName"
     Copy-Item $asciiZip $downloadsZip -Force
     Write-Output "Also copied to $downloadsZip"
 }
